@@ -1,0 +1,3 @@
+repare_homepage:
+    path:     /repare
+    defaults: { _controller: RepareBundle:Default:index }

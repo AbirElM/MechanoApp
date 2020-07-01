@@ -1,0 +1,36 @@
+CarBundle\Entity\Car:
+    type: entity
+    table: null
+    repositoryClass: CarBundle\Repository\CarRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        model:
+            type: string
+            length: 255
+        license:
+            type: string
+            length: 255
+            unique: true
+        year:
+            type: string
+            length: 255
+        ownerLN:
+            type: string
+            length: 255
+            column: owner_LN
+        ownerFN:
+            type: string
+            length: 255
+            column: owner_FN
+        cin:
+            type: string
+            length: 255
+            column: cin
+            unique: true
+
+    lifecycleCallbacks: {  }
