@@ -1,0 +1,68 @@
+
+
+
+Creating a project :
+
+$ composer create-project symfony/framework-standard-edition my_project_name
+
+Container : 
+
+Object containing services 
+       Dish Service
+       PromotionService 
+Etc ... 
+
+A container is like an array containing the services used by the app.
+
+Web directory : 
+Document root 
+Anything in web is accessible by the public using the hostname 
+If a file is outside of web, then it's not publicly accessible
+
+{% block stylesheets %} 
+<link rel="stylesheet" href="{{asset()}}"
+{% endblock %}
+
+Object Relational Mapper : 
+DOCTRINE ! 
+
+Car Table <--> PHP class 
+SO an object basically
+/!\ ALL THE TOOLS ARE OPTIONAL 
+
+So we need to first configure parameters.yml 
+Db_host : localhost
+DB_user: root
+Db_Pass: 
+port 
+Etc.. 
+
+MAPPING FROM DATABASE : 
+
+Si on a deja une database importée, première chose à faire : Le mapping
+
+$ bin/console doctrine:mapping:import "RepareBundle\Reparation" annotation --path=src/Entity
+ This imported the database mapping into an Entity folder 
+
+Cette commande va créer les entités car et reparation dans un fichier Entity 
+
+
+Sinon : 
+
+We create a database using the console :
+$ ./bin/console doctrine:database:create
+
+$ ./bin/console doctrine:generate:entity
+       shortcut : name_bundle/entity_name
+
+car.orm.yml : c'est le fichier de configuration de l'entité dans doctrine 
+
+To apply the changes to the DB created in MYSQL : 
+$ ./bin/console doctrine:schema:update --force
+
+
+Create a form : 
+
+$          bin/console doctrine:generate:form CarBundle:Car 
+$          bin/console doctrine:schema:update --complete --force  // SO as to force drop of irrelevan table 
+
