@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Car</h1>
+
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th>License</th>
+            <td>{{ car.license }}</td>
+        </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ car.model }}</td>
+            </tr>
+
+            <tr>
+                <th>Year</th>
+                <td>{{ car.year }}</td>
+            </tr>
+            <tr>
+                <th>Ownerln</th>
+                <td>{{ car.ownerLN }}</td>
+            </tr>
+            <tr>
+                <th>Ownerfn</th>
+                <td>{{ car.ownerFN }}</td>
+            </tr>
+            <tr>
+                <th>Cin</th>
+                <td>{{ car.cin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+
+            <button class="btn-success" href="{{ path('car_index') }}">Back to the list</button>
+
+
+            <button class="btn-success" href="{{ path('car_edit', { 'id': car.license }) }}">Edit</button>
+
+
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" >
+            {{ form_end(delete_form) }}
+
+    </ul>
+{% endblock %}

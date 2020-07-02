@@ -1,0 +1,30 @@
+RepareBundle\Entity\Reparation:
+    type: entity
+    table: null
+    repositoryClass: RepareBundle\Repository\ReparationRepository
+    id:
+        id_rep:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        state:
+            type: boolean
+        description:
+            type: text
+    manyToOne:
+        license:
+            type: string
+            targetEntity: CarBundle\Entity\Car
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                license:
+                    referencedColumnName: license
+                    name: license
+            orphanRemoval: false
+
+    lifecycleCallbacks: {  }

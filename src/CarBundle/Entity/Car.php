@@ -9,101 +9,235 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="car")
  */
-
 class Car
 {
-    /**
-     * @var int
-     */
-    private $id;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $cin;
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $test;
-
+//    /**
+//     * @return mixed
+//     */
+//    public function getCin()
+//    {
+//        return $this->cin;
+//    }
+//
+//    /**
+//     * @param mixed $cin
+//     */
+//    public function setCin($cin)
+//    {
+//        $this->cin = $cin;
+//    }
+//    /**
+//     * @var int
+//     */
+//    private $id;
+//
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    private $cin;
+//
+//
+//    /**
+//     * @var string
+//     */
+//    private $model;
+//
+//    /**
+//     * @var string
+//     */
+//    private $license;
+//
+//    /**
+//     * @var string
+//     */
+//    private $year;
+//
+//    /**
+//     * @var string
+//     */
+//    private $ownerLN;
+//
+//    /**
+//     * @var string
+//     */
+//    private $ownerFN;
+//
+//
+//    /**
+//     * Get id
+//     *
+//     * @return int
+//     */
+//    public function getId()
+//    {
+//        return $this->id;
+//    }
+//
+//    /**
+//     * Set model
+//     *
+//     * @param string $model
+//     *
+//     * @return Car
+//     */
+//    public function setModel($model)
+//    {
+//        $this->model = $model;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get model
+//     *
+//     * @return string
+//     */
+//    public function getModel()
+//    {
+//        return $this->model;
+//    }
+//
+//    /**
+//     * Set license
+//     *
+//     * @param string $license
+//     *
+//     * @return Car
+//     */
+//    public function setLicense($license)
+//    {
+//        $this->license = $license;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get license
+//     *
+//     * @return string
+//     */
+//    public function getLicense()
+//    {
+//        return $this->license;
+//    }
+//
+//    /**
+//     * Set year
+//     *
+//     * @param string $year
+//     *
+//     * @return Car
+//     */
+//    public function setYear($year)
+//    {
+//        $this->year = $year;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get year
+//     *
+//     * @return string
+//     */
+//    public function getYear()
+//    {
+//        return $this->year;
+//    }
+//
+//    /**
+//     * Set ownerLN
+//     *
+//     * @param string $ownerLN
+//     *
+//     * @return Car
+//     */
+//    public function setOwnerLN($ownerLN)
+//    {
+//        $this->ownerLN = $ownerLN;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get ownerLN
+//     *
+//     * @return string
+//     */
+//    public function getOwnerLN()
+//    {
+//        return $this->ownerLN;
+//    }
+//
+//    /**
+//     * Set ownerFN
+//     *
+//     * @param string $ownerFN
+//     *
+//     * @return Car
+//     */
+//    public function setOwnerFN($ownerFN)
+//    {
+//        $this->ownerFN = $ownerFN;
+//
+//        return $this;
+//    }
+//
+//    /**
+//     * Get ownerFN
+//     *
+//     * @return string
+//     */
+//    public function getOwnerFN()
+//    {
+//        return $this->ownerFN;
+//    }
 
     /**
      * @var string
-     */
-    private $model;
-
-    /**
-     * @var string
+     *
+     * @ORM\Column(name="license", type="string", length=255, nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $license;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="model", type="string", length=255, nullable=false)
+     */
+    private $model;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="year", type="string", length=255, nullable=false)
      */
     private $year;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="owner_LN", type="string", length=255, nullable=false)
      */
-    private $ownerLN;
+    private $ownerLn;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="owner_FN", type="string", length=255, nullable=false)
      */
-    private $ownerFN;
-
+    private $ownerFn;
 
     /**
-     * Get id
+     * @var string
      *
-     * @return int
+     * @ORM\Column(name="cin", type="string", length=255, nullable=false)
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $cin;
 
     /**
-     * Set model
-     *
-     * @param string $model
-     *
-     * @return Car
-     */
-    public function setModel($model)
-    {
-        $this->model = $model;
-
-        return $this;
-    }
-
-    /**
-     * Get model
-     *
-     * @return string
-     */
-    public function getModel()
-    {
-        return $this->model;
-    }
-
-    /**
-     * Set license
-     *
-     * @param string $license
-     *
-     * @return Car
-     */
-    public function setLicense($license)
-    {
-        $this->license = $license;
-
-        return $this;
-    }
-
-    /**
-     * Get license
-     *
      * @return string
      */
     public function getLicense()
@@ -112,22 +246,30 @@ class Car
     }
 
     /**
-     * Set year
-     *
-     * @param string $year
-     *
-     * @return Car
+     * @param string $license
      */
-    public function setYear($year)
+    public function setLicense($license)
     {
-        $this->year = $year;
-
-        return $this;
+        $this->license = $license;
     }
 
     /**
-     * Get year
-     *
+     * @return string
+     */
+    public function getModel()
+    {
+        return $this->model;
+    }
+
+    /**
+     * @param string $model
+     */
+    public function setModel($model)
+    {
+        $this->model = $model;
+    }
+
+    /**
      * @return string
      */
     public function getYear()
@@ -136,51 +278,63 @@ class Car
     }
 
     /**
-     * Set ownerLN
-     *
-     * @param string $ownerLN
-     *
-     * @return Car
+     * @param string $year
      */
-    public function setOwnerLN($ownerLN)
+    public function setYear($year)
     {
-        $this->ownerLN = $ownerLN;
-
-        return $this;
+        $this->year = $year;
     }
 
     /**
-     * Get ownerLN
-     *
      * @return string
      */
-    public function getOwnerLN()
+    public function getOwnerLn()
     {
-        return $this->ownerLN;
+        return $this->ownerLn;
     }
 
     /**
-     * Set ownerFN
-     *
-     * @param string $ownerFN
-     *
-     * @return Car
+     * @param string $ownerLn
      */
-    public function setOwnerFN($ownerFN)
+    public function setOwnerLn($ownerLn)
     {
-        $this->ownerFN = $ownerFN;
-
-        return $this;
+        $this->ownerLn = $ownerLn;
     }
 
     /**
-     * Get ownerFN
-     *
      * @return string
      */
-    public function getOwnerFN()
+    public function getOwnerFn()
     {
-        return $this->ownerFN;
+        return $this->ownerFn;
     }
+
+    /**
+     * @param string $ownerFn
+     */
+    public function setOwnerFn($ownerFn)
+    {
+        $this->ownerFn = $ownerFn;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCin()
+    {
+        return $this->cin;
+    }
+
+    /**
+     * @param string $cin
+     */
+    public function setCin($cin)
+    {
+        $this->cin = $cin;
+    }
+    public function __toString() {
+        return $this->license;
+    }
+
 }
 

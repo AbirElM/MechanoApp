@@ -1,3 +1,7 @@
+repare_reparation:
+    resource: "@RepareBundle/Resources/config/routing/reparation.yml"
+    prefix:   /reparation
+
 repare_homepage:
     path:     /repare
     defaults: { _controller: RepareBundle:Default:index }

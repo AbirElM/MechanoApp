@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Reparations list</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id_rep</th>
+                <th>State</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reparation in reparations %}
+            <tr>
+                <td><a href="{{ path('reparation_show', { 'id_rep': reparation.idrep }) }}">{{ reparation.idrep }}</a></td>
+                <td>{% if reparation.state %}Yes{% else %}No{% endif %}</td>
+                <td>{{ reparation.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('reparation_show', { 'id_rep': reparation.idRep}) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('reparation_edit', { 'id_rep': reparation.idRep}) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('reparation_new') }}">Create a new reparation</a>
+        </li>
+    </ul>
+{% endblock %}

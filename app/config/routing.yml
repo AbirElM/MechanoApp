@@ -1,12 +1,14 @@
 repare:
-    resource: "@RepareBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@RepareBundle/Resources/config/routing/reparation.yml"
+    prefix:   /reparation
 
 car:
-    resource: "@CarBundle/Resources/config/routing.yml"
-    prefix:   /
+    resource: "@CarBundle/Resources/config/routing/car.yml"
+    prefix:   /car
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+
 

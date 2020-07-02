@@ -1,93 +1,84 @@
 <?php
 
-
 namespace RepareBundle\Entity;
-
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Reparation
+ *
+ * @ORM\Table(name="reparation", indexes={@ORM\Index(name="license", columns={"license"})})
  * @ORM\Entity
- * @ORM\Table(name="reparation")
  */
 class Reparation
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_rep", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id_rep;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var boolean
+     *
+     * @ORM\Column(name="state", type="boolean", nullable=false)
      */
     private $state;
 
     /**
-     * @ORM\Column(type="string",unique=true)
-     */
-    /**
-     * @ORM\ManyToOne(targetEntity="CarBundle\Entity\Car")
-     * @ORM\JoinColumn(name="license",referencedColumnName="license",nullable=false,onDelete="CASCADE")
-     */
-    private $license;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    /**
-     * @ORM\ManyToOne(targetEntity="CarBundle\Entity\Car")
-     * @ORM\JoinColumn(name="cin",referencedColumnName="cin",nullable=false,onDelete="CASCADE")
-     */
-    private $cin;
-
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $total;
-
-    /**
-     * @return mixed
-     */
-    public function getTotal()
-    {
-        return $this->total;
-    }
-
-    /**
-     * @param mixed $total
-     */
-    public function setTotal($total)
-    {
-        $this->total = $total;
-    }
-    /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
 
     /**
-     * @return mixed
+     * @var CarBundle\Entity\Car
+     *
+     * @ORM\ManyToOne(targetEntity="Car")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="license", referencedColumnName="license")
+     * })
      */
-    public function getCin()
+    private $license;
+
+    /**
+     * @return int
+     */
+    public function getIdRep()
     {
-        return $this->cin;
+        return $this->id_rep;
     }
 
     /**
-     * @param mixed $cin
+     * @param int $id_rep
      */
-    public function setCin($cin)
+    public function setIdRep($id_rep)
     {
-        $this->cin = $cin;
+        $this->id_rep = $id_rep;
     }
 
-
+    /**
+     * @return bool
+     */
+    public function isState()
+    {
+        return $this->state;
+    }
 
     /**
-     * @return mixed
+     * @param bool $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return string
      */
     public function getDescription()
     {
@@ -95,7 +86,7 @@ class Reparation
     }
 
     /**
-     * @param mixed $description
+     * @param string $description
      */
     public function setDescription($description)
     {
@@ -103,7 +94,7 @@ class Reparation
     }
 
     /**
-     * @return mixed
+     * @return CarBundle\Entity\Car
      */
     public function getLicense()
     {
@@ -111,11 +102,16 @@ class Reparation
     }
 
     /**
-     * @param mixed $license
+     * @param CarBundle\Entity\Car $license
      */
     public function setLicense($license)
     {
         $this->license = $license;
     }
+    public function __toString()
+    {
+        return $this->getDescription();
+    }
 
 }
+

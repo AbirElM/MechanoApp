@@ -1,0 +1,24 @@
+reparation_index:
+    path:     /
+    defaults: { _controller: "RepareBundle:Reparation:index" }
+    methods:  GET
+
+reparation_show:
+    path:     /{id_rep}/show
+    defaults: { _controller: "RepareBundle:Reparation:show" }
+    methods:  GET
+
+reparation_new:
+    path:     /new
+    defaults: { _controller: "RepareBundle:Reparation:new" }
+    methods:  [GET, POST]
+
+reparation_edit:
+    path:     /{id_rep}/edit
+    defaults: { _controller: "RepareBundle:Reparation:edit" }
+    methods:  [GET, POST]
+
+reparation_delete:
+    path:     /{id_rep}/delete
+    defaults: { _controller: "RepareBundle:Reparation:delete" }
+    methods:  DELETE
